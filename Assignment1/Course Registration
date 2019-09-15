@@ -1,0 +1,51 @@
+Class: Student
+State: studentID, password
+Behavior: login(){
+           myRegistration.login(studentID)
+		  }
+          searchCourses(coursename)
+		  checkClassVacancy(){
+		   SeatAvailable = database.showSeatAvailable()
+		  }
+		  registerCourses(){
+		   if(int remainingSeatNum > 0){
+		     register(coursenumber)
+			 }
+		   else{
+		     system.out.println("Please check another section of this course.")
+			  }  
+		  } 
+		
+Class: CreditCard
+State: cardName, bankName, cardNumber, securityCode, expireDate		  
+Behavior: payTuition(){
+           if(int dateOfToday > int expireDate){
+		    return true;
+		   }
+		  }	
+
+Class: Database
+Behavior: showSeatAvailable(){
+           List<Student> studentsName
+		   List<Student> studentsNameInClass
+		   for(i=0,i<=class.size(),i++){
+		    int j = class.size()- i;
+			while(j>=0){
+			 openCourseRegistration()
+			}
+		   }
+		   studentsNameInClass.add(studentsName.get(i));
+		 }	
+
+Class: Academic Administration
+Behavior: checkQualificationOfStudents(){
+           List<QualificatedStudent> Names;
+           foreach(studentsNameInClass){
+		    if(studentsNameInClass == Names){
+			 return true;
+			}
+		    else {
+			 system.out.println("You are not qualified to register.");
+			}
+		   }		   
+		  }         		 
