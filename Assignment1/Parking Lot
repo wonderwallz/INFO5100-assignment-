@@ -1,0 +1,42 @@
+Class: Vehicle
+data: enum vehicleSize{Motorcycle, Compact, Large};
+      string licenseNumber;
+	  parkingTicket ticket;
+Behavior: getTicket(parkingTicket ticket);
+          getVehicleSize(this.vehicle);
+          park(ParkingSpot spot){
+		   List<ParkingSpot> parkingspots = new List;
+		   parkingspots.add(this.spot);
+		  }	  
+	     leaveSpot(){
+		  parkingspots.abstract(this.spot);
+		 }
+		 
+Class: ParkingSpot
+Behavior: assignParkingSpot(this.spot){
+           boolean IsAvailable()=false;
+		   getFloor(){
+		    return floor;
+		   }
+		   getSpotNumber(){
+		    return spotNumber;
+		   }
+		 }		 
+	     removeVehicle(this.vehicle){
+		  boolean IsAvailable()=true;
+		 }
+		 
+Class: ControlPanel
+Behavior: DisplayAvailableSpots(){
+           if(this.spot.IsAvailable()){
+		    system.out.print(assignParkingSpot.getFloor()+ assignParkingSpot.getSpotNumber()+ "is empty.")
+		   }
+		   else{
+		    system.out.print(assignParkingSpot.getFloor()+ assignParkingSpot.getSpotNumber()+ "is occupied right now.")
+		   }
+		 }
+
+Class: ParkingManager
+Behavior: findParkingSpot(int vehicleSize);
+          giveParkingTicket(SpotNumber);
+          		  

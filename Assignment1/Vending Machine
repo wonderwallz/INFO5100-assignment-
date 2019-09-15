@@ -1,0 +1,50 @@
+Class: Coins
+       coins cent = new value;
+	   coins dime = new value;
+	   coins quarter = new value;
+	   double cent = 0.01;
+	   double dime = 0.1;
+	   double quarter = 0.25;
+
+class: Customer
+Behavior: chooseItems(){
+           this.item = x;
+		   pressButtonOfItem();
+		 }
+		 insertCoins(C);
+		 getItem(){
+		  machine.dispenseItem();
+		 }
+		 getChange(){
+		  machine.makeChange();
+		 }
+		 
+Class: Machine
+Behavior: manageInventory(){
+           int soda.price = 3;
+		   int candy.price = 1.5;
+		   soda.inventory ={
+		    coke: 5
+			fenta: 5
+			sprite: 5
+		   }
+		   candy.inventory;
+		 }		 
+		 makeSelection(){
+		  int balance=0;
+		  int amount= int insertCoins(C);
+		  balance=balance+amount;
+		  if(this.inventory>=1 && balance>=this.price){
+		   dispenseItem(this.item);
+		   balance=balance-this.price;
+		  }
+		 }
+		 UpdateInventory(){
+		  inventory[this.item]=inventory[this.item]-1;
+		 }
+		 MakeChange(){
+		  if(balance>0){
+		   refundAmout=balance;
+		   letoutCoins;
+		  }
+		 }
