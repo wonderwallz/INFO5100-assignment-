@@ -1,0 +1,33 @@
+Class: Road
+Behavior: direction=new direction{"N2S","S2N","N2E","S2W","E2W","W2E","W2N","E2S","S2E","E2N","N2W","W2S"};
+          List<Vehicle> vehicles=new List;
+		  operate(road.this.name){
+		   for(i=1,i<=1000,i++){
+		    if(vehicles.size()>0){
+			 if(lightOfRoad.this.name.islighted){
+			  vehicles.remove();
+			 }
+			}
+		   }
+		  }
+          
+Class: Light
+State: Red, Green
+Behavior: boolean islighted(){
+           return lighted;
+		 }
+         getGreen(){
+		  islighted=true;
+		  if(opposite has value){
+		   light.opposite.getGreen();
+		  }
+		 }
+         getRed(){
+		  islighted=false;
+		  if(opposite has value){
+		   light.opposite.getRed();
+		   }
+		 }		 
+
+Class: Controller
+Behavior: setIntervalTimeOfEachLight();		 
