@@ -1,0 +1,231 @@
+Q1:
+public class Course {
+	private int courseId;
+	private String courseName;
+	private int maxCapacity;
+	private String professorId;
+	private int credits;
+	private int[] studentIds;
+  
+  void registerStudent(int studentId) {
+	    if(this.studentIds==null) {
+			this.studentIds = new int[] {studentId};
+		}
+		else {
+			int x[] = new int[this.studentIds.length+1];
+			for(int i=0;i<this.studentIds.length;i++) {
+			    x[i]=studentIds[i];
+			    }
+			x[x.length-1]=studentId;
+			this.studentIds=x;
+			
+		}
+		
+	}
+-----------------------------------------------------------------------
+Q2:
+void setCourseId(int courseId) {
+		if(courseId>0) {
+			this.courseId = courseId;
+		}
+	}
+	public int getCourseId() {
+		return courseId;
+	}
+	
+	void setCourseName(String courseName){
+		if(courseName.length()<10 || courseName.length()>60) {
+			throw new IllegalArgumentException("Not a right courseName");
+		}
+		else {
+			this.courseName = courseName;
+		}
+	}
+	public String getCourseName() {
+		return courseName;
+	}
+	
+	void setMaxCapacity(int maxCapacity) {
+		if(maxCapacity>=10 && maxCapacity<=100) {
+			this.maxCapacity = maxCapacity;
+		}
+		else {
+			throw new IllegalArgumentException("Not a right max capacity");
+		}
+	}
+	public int getMaxCapacity() {
+		return maxCapacity;
+	}
+	
+	void setProfessorId(String professorId) {
+		if(professorId.length()==6) {
+			this.professorId = professorId;
+		}
+		else {
+			throw new IllegalArgumentException("Not a right professor ID");
+		}
+	}
+	public String getProfessorId() {
+		return professorId;
+	}
+	
+	void setCredits(int credits) {
+		if(credits>0 && credits<10) {
+			this.credits = credits;
+		}
+		else {
+			throw new IllegalArgumentException("Not a right credits");
+		}
+	}
+	public int getCredits() {
+		return credits;
+	}
+	void setStudentsId(int[] studentIds) {
+		this.studentIds = studentIds;
+	}
+	public int[] getStudentsId() {
+		return this.studentIds;
+	}
+-----------------------------------------------------------------------------------------
+Q3:
+public int[] removeDuplicates(int[] studentIds) {
+       List<Integer> list = new ArrayList<>();
+       list.add(studentIds[0]);
+       for(int i=1;i<studentIds.length;i++) {
+    	   if(!list.contains(studentIds[i])) {
+    		   list.add(studentIds[i]);
+    	   }
+       }
+       int[] newIds = new int[list.size()];
+       for(int j=0;j<list.size();j++) {
+    	   newIds[j]=list.get(j);
+       }
+       return newIds;
+	}
+------------------------------------------------------------------------------------------
+Q4:
+public int groupsOfStudents(int[] studentIds) {
+		int sum = 0;
+		for(int i=0;i<studentIds.length;i++) {
+			for(int j=i+1;j<studentIds.length;j++) {
+				if((studentIds[i]+studentIds[j])%2==0) {
+					sum = sum+1;
+				}
+			}
+		}
+		return sum;
+	}
+--------------------------------------------------------------------------------------------
+Q5:
+public String countAndSay(int n) {
+		int i = 1;
+		String say = "1";
+		while(i<n) {
+			int count = 0;
+			StringBuilder s = new StringBuilder();
+			char c = say.charAt(0);
+			for(int j=0;j<=say.length();j++) {
+				if(j!=say.length() && say.charAt(j)==c) {
+					count++;
+				}
+				else {
+					s.append(count);
+					s.append(c);
+					if(j!=say.length()) {
+						count=1;
+						c=say.charAt(j);
+					}
+				}
+			}
+			say=s.toString();
+			i++;
+		}
+		return say;
+	}
+----------------------------------------------------------------------------------------------
+Q6:
+public String reverseWords(String s) {
+		String[] c = s.split(" ");
+		String reverse ="";
+		for(int i=c.length-1;i>-1;i--) {
+			reverse = reverse+c[i]+" ";
+		}
+		return reverse;
+	}
+-----------------------------------------------------------------------------------------------
+Q7:
+public List<Integer> spiralOrder(int[][] matrix) {
+		List<Integer> spiral = new ArrayList();
+		if(matrix.length==0) {
+			return spiral;
+		}
+		int rowBegin=0;
+		int rowEnd=matrix.length-1;
+		int columnBegin=0;
+		int columnEnd=matrix[0].length-1;
+		while(rowBegin<=rowEnd && columnBegin<=columnEnd) {
+			for(int i=columnBegin;i<=columnEnd;i++) {
+				spiral.add(matrix[rowBegin][i]);
+			}
+			rowBegin++;
+			for(int i=rowBegin;i<=rowEnd;i++) {
+				spiral.add(matrix[i][columnEnd]);
+			}
+			columnEnd--;
+			if(columnBegin<=columnEnd) {
+				for(int i=columnEnd;i>=columnBegin;i--) {
+					spiral.add(matrix[rowEnd][i]);
+				}
+			}
+			rowEnd--;
+			if(columnBegin<=columnEnd) {
+				for(int i=rowEnd;i>=rowBegin;i--) {
+					spiral.add(matrix[i][columnBegin]);
+				}
+			}
+			columnBegin++;
+		}
+		return spiral;
+	}
+-----------------------------------------------------------------------------------------
+Q8:
+public String convert(String s,int numRows) {
+		if(numRows<=1) {
+			return s;
+		}
+		StringBuilder[] con = new StringBuilder[numRows];
+		for(int i=0;i<con.length;i++) {
+			con[i] = new StringBuilder("");
+		}
+		for(int i=0;i<s.length();i++) {
+			int index = i%(2*numRows-2);
+			index = index<numRows ? index: 2*numRows-2-index;
+			con[index].append(s.charAt(i));
+		}
+		for(int i=1;i<con.length;i++) {
+			con[0].append(con[i]);
+		}
+		return con[0].toString();
+	}
+-------------------------------------------------------------------------------------------
+Q9:
+ Encapsulation means putting variables and methods together, which also means to create a class. The variables are private 
+ in this class and cannot be accessed outside of this class. We can use get() and set() methods to access the variables.
+  class encapsulationTest(){
+    private String name;
+   
+   public void setName(String name){
+      this.name=name;
+    }
+    public String getName(){
+      return name;
+    }
+  }
+------------------------------------------------------------------------------------------
+Q10:
+Abstraction is a mechanism which represent the essential features without including implementation details.
+Abstract class cannot be created.
+Abstract method is just the method, which means it cannot implement.
+Focues on what object does instead how it does.
+Encapsulation is hiding the implementation details from outside the class, and restrcting access to the variables.
+
