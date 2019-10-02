@@ -229,3 +229,4 @@ Abstract method is just the method, which means it cannot implement.
 Focues on what object does instead how it does.
 Encapsulation is hiding the implementation details from outside the class, and restrcting access to the variables.
 
+
