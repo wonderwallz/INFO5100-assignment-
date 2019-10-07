@@ -1,0 +1,46 @@
+abstract class MoodyObject {
+	protected abstract String getMood();
+	
+	protected abstract void expressFeelings();
+	
+	public void queryMood() {
+		System.out.println("I feel"+" " + getMood() +" " + "today!");
+	}
+
+}
+
+class SadObject extends MoodyObject{
+
+	@Override
+	protected String getMood() {
+		return "sad";
+	}
+
+	@Override
+	protected void expressFeelings() {
+		System.out.println("'Wah''boo hoo''weep''sob''weep'");
+	}
+	
+	public String toString() {
+		return "Subject cries a lot";
+	}
+	
+}
+
+class HappyObject extends MoodyObject{
+
+	@Override
+	protected String getMood() {
+		return "happy";
+	}
+
+	@Override
+	protected void expressFeelings() {
+		System.out.println("hehehe...hahahah...HAHAHAHAHA!!!");
+	}
+	
+	public String toString() {
+		return "Subject laughs a lot";
+	}
+	
+}
