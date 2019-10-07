@@ -1,0 +1,26 @@
+public class DessertShop {
+	public static String storeName = "M & M Dessert Shop";
+	public static double taxRate = 6.5;
+	public static int maxSizeOfItemName;
+	public static int widthOfCosts = 5;
+	
+	public static String cents2dollarsAndCentsMethod(int cents) {
+		int dollars = cents/100;
+		cents = cents%100;
+		
+		String s = "";
+		
+		if(dollars>0) {
+			s = s + dollars;
+		}
+		s = s + ".";
+		
+		if(cents<10) {
+			s = s + 0;
+		}
+		s = s + cents;
+		return s;
+	}
+
+	
+}
