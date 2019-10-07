@@ -1,0 +1,26 @@
+public class ShapeTester {
+
+	public static void main(String[] args) {
+		Circle c = new Circle(4.0);
+		Rectangle r = new Rectangle(2.0,3.0);
+		Square sq = new Square(4.0);
+        Shape s = new Shape();
+        c.getArea();
+        System.out.println(c.getArea());
+        r.getArea();
+        System.out.println(r.getArea());
+        sq.getArea();
+        System.out.println(sq.getArea());
+        c.getPerimeter();
+        System.out.println(c.getPerimeter());
+        r.getPerimeter();
+        System.out.println(r.getPerimeter());
+        sq.getPerimeter();
+        System.out.println(sq.getPerimeter());
+        r.draw();
+        c.draw();
+        sq.draw();
+        s.draw();
+	}
+
+}
