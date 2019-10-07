@@ -1,0 +1,15 @@
+abstract class DessertItem {
+	protected String name;
+	
+	public DessertItem() {
+		this.name = "";
+	}
+	public DessertItem(String name) {
+		this.name = name;
+	}
+	public abstract int getCost();
+	public final String getName() {
+		return getClass().getSimpleName();
+	}
+
+}
