@@ -1,0 +1,25 @@
+public class Candy extends DessertItem {
+	private double weight;
+	private int pricePerPound;
+	private int cost;
+	
+	public Candy(String name, double weight, int pricePerPound) {
+		super(name);
+		this.weight = weight;
+		this.pricePerPound = pricePerPound;
+	}
+	
+	public int getCost() {
+		cost = (int)Math.round(this.weight*this.pricePerPound);
+		return cost;
+	}
+	
+	public double getWeight() {
+		return weight;
+	}
+	
+	public int getPricePerPound() {
+		return pricePerPound;
+	}
+
+}
