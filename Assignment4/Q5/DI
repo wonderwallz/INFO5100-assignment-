@@ -1,0 +1,28 @@
+public class ExtraCredit {
+	public int[] DIToNum(String s) {
+		int size = s.length();
+		int small = 0;
+		int large = size;
+		
+		int[] output = new int[size+1];
+		for(int i=0;i<size;i++) {
+			if(s.charAt(i)=='I') {
+				output[i]=small;
+				small=small+1;
+			}
+			else {
+				output[i]=large;
+				large=large-1;
+			}
+		}
+		output[size]=small;
+		return output;
+	}
+
+public static void main(String[] args) {
+	String s = "IDDII";
+	ExtraCredit extra = new ExtraCredit();
+	extra.DIToNum(s);
+	System.out.println(extra.DIToNum(s));
+}
+}
