@@ -1,0 +1,27 @@
+public class PsychiatristObject {
+   public void examine(MoodyObject moodyObject) {
+	  System.out.println("How are you feeling today?");
+	  moodyObject.queryMood();
+   }
+   
+   public void observe(MoodyObject moodyObject) {
+	 moodyObject.expressFeelings();
+	 System.out.println("Observation: "+moodyObject.toString());
+   }
+			
+	
+	public static void main(String[] args) {
+		SadObject s = new SadObject();
+		HappyObject h = new HappyObject();
+		PsychiatristObject psy = new PsychiatristObject();
+	    psy.examine(h);
+	    System.out.println();
+	    psy.observe(h);
+	    System.out.println();
+	    psy.examine(s);
+	    System.out.println();
+	    psy.observe(s);
+	    System.out.println();
+	}
+
+}
