@@ -1,0 +1,68 @@
+public class CheckOut {
+	public int numberOfItems;
+    DessertItem[] mmDessertItem = new DessertItem[50];
+	
+	public CheckOut() {
+		
+	}
+	
+	public int numberOfItems() {
+		return numberOfItems;
+	}
+	
+	public void enterItem(DessertItem item) {
+		this.mmDessertItem[numberOfItems]=item;
+		numberOfItems++;
+	}
+	
+	public void clear() {
+		mmDessertItem = null;
+		numberOfItems = 0;
+	}
+	
+	public int totalCost() {
+		int total = 0;
+		for(int i=0;i<numberOfItems;i++) {
+			total = total + mmDessertItem[i].getCost();
+		}
+		return total;
+	}
+	
+	public int totalTax() {
+		return (int)Math.round(this.totalCost()*DessertShop.taxRate/100);
+	}
+	
+	public String toString() {
+		String s = "";
+		s = s + "  " + DessertShop.storeName + "\n";
+		s = s + "  " + "------------------" + "\n";
+		
+		for(int i=0;i<numberOfItems;i++) {
+			String s1 = mmDessertItem[i].getName();
+			String s2 = DessertShop.cents2dollarsAndCentsMethod(mmDessertItem[i].getCost());
+			
+			if(mmDessertItem[i] instanceof Candy) {
+				s = s + ((Candy) mmDessertItem[i]).getWeight()+"lb. @ "+ DessertShop.cents2dollarsAndCentsMethod(((Candy) mmDessertItem[i]).getPricePerPound())+"/lb.\n";
+				s = s + s1 + s2 + "\n";
+			}
+			else if(mmDessertItem[i] instanceof Sundae) {
+				s = s +((Sundae) mmDessertItem[i]).getTopping()+" with\n";
+				s = s + s1 + s2 + "\n";
+			}
+			else if(mmDessertItem[i] instanceof Cookie) {
+				s = s +((Cookie) mmDessertItem[i]).getNumber()+" @"+ DessertShop.cents2dollarsAndCentsMethod(((Cookie) mmDessertItem[i]).pricePerDozen())+"/dz.\n";
+				s = s + s1 + s2 + "\n";
+			}
+		}
+		String tax = "Tax";
+		String tax1 = DessertShop.cents2dollarsAndCentsMethod(totalTax());
+		s = tax + tax1 + "\n";
+		
+		String cost = "Total Cost";
+		String total = DessertShop.cents2dollarsAndCentsMethod(totalCost()+totalTax());
+		s = cost + total;
+		
+		return s;		
+	}
+
+}
