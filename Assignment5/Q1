@@ -1,0 +1,5 @@
+Final: Final is a keyword which is used to put restrictions on class, variable and method. Adding final to class means the class cannot 
+       be extended by other class. Method with class cannot be overridden in child class. And making variable final means it cannot be 
+       changed after it is initialized.
+Finally: Finally is a block to use with try/catch statement. In the block, it should include code to do operation after try/catch whether the 
+         exception is thrown or not. It can also be put after try block without catch block.
