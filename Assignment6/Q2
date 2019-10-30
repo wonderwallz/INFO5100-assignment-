@@ -1,0 +1,4 @@
+1. LinkedList can iterates in reverse direction using descendingIterator(), but ArrayList doesn't have which means we need to write code 
+iterate over ArrayList in reverse direction.
+2. ArrayList get() function runs much faster than LinkedList get() since ArrayList uses index based system for elements but LinkedList
+doesn't provide index based access, it iterates either from beginning or end to find the nodes.
